@@ -1,0 +1,174 @@
+
+<!-- saved from url=(0051)http://172.16.157.141:8080/download/files/index.php -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<style>
+img
+{
+width:120px;
+height:150px;
+}
+div
+{
+
+vertical-align:middle;
+margin:20px 0px;
+padding:2px 0px;
+}
+h1
+{
+text-align:center;
+color:red;
+
+}
+input[type=text]
+{
+text-align:center;
+background-color:yellow;
+border-radius:10px;
+}
+td,th,table
+{
+
+text-align:center;
+}
+</style>
+<script>
+function abc()
+{
+alert("Order Confirmed");
+}
+function display(x) {
+x="q_"+x;
+if(document.getElementById(x).disabled)
+	{
+	document.getElementById(x).disabled=false;
+	document.getElementById(x).value=1;
+	}
+else
+	{
+	document.getElementById(x).disabled=true;
+	document.getElementById(x).value=0;
+	} 
+}
+</script>
+<title>
+Menu
+</title>
+</head>
+<body bgcolor="pink">
+<div style="background-color:purple;">
+<h1>Hotel TasteBuds</h1>
+</div>
+<div style="float:left; width:50%;height:56%">
+Our Hotel cum Multi cuisine restaurant, Hotel TasteBuds is a vibrant, lively and fun space suited to all types of dining occasions. Our experienced and passionate chefs dish out a repertoire of authentic South East Asian cuisine as well as Indian and European fare, taking your culinary experience to another level with its exciting "<strong>world on your platter"</strong> concept. 
+<br><br>
+<h4>Buffet offerings(For those staying in the hotel)</h4>  
+
+<strong>Breakfast</strong>: INR 800 plus taxes (Daily from 6.30 a.m. - 10.30 a.m.)<br>
+<strong>Lunch</strong>: INR 1000 plus taxes (Daily from 12.30 p.m. - 3.30 p.m.)<br>
+<strong>Dinner</strong>: INR 1200 plus taxes (Daily from 7 p.m. - 11.30 p.m.)<br> 
+</div>
+<div style="float:right;">
+<form action="http://172.16.157.141:8080/download/files/index.php#" method="post">
+<table border="1" align="center" style="background-color:skyblue;">
+<body><tr><td colspan="5" style="vertical-align:middle;">Order Online!!!</td></tr>
+
+<tr>
+<th>S. No.</th>
+<th>Particulars</th>
+<th>Price per unit</th>
+<th>Check for adding in the order</th>
+<th>Quantity</th>
+</tr>
+<tr>
+<th>1</th>
+<th>Paneer Butter Masala</th>
+<th>Rs. 200</th>
+<th><input type="checkbox" value="item1" onclick="display(this.value)"><input type="hidden" name="item1" value="200"></th>
+<th><input type="text" name="q_item1" id="q_item1" value="0" disabled="" required=""></th>
+</tr>
+<tr>
+<th>2</th>
+<th>Dal Makhani</th>
+<th>Rs. 150</th>
+<th><input type="checkbox" value="item2" onclick="display(this.value)"><input type="hidden" name="item2" value="150"></th>
+<th><input type="text" name="q_item2" id="q_item2" value="0" disabled="" required=""></th>
+</tr>
+<tr>
+<th>3</th>
+<th>Butter Roti</th>
+<th>Rs. 20</th>
+<th><input type="checkbox" value="item3" onclick="display(this.value)"><input type="hidden" name="item3" value="20"></th>
+<th><input type="text" name="q_item3" id="q_item3" value="0" disabled="" required=""></th>
+</tr>
+<tr>
+<th colspan="5" align="center"><input type="submit" name="submit" value="Generate Bill"></th>
+</tr>
+</tbody></table>
+</form>
+</div>
+<div name="d3" style="float:right;width:20%; height:28%; text-align:center;" class="applyborder">
+
+<!--?php
+if(isset($_POST['submit']))
+{
+$color=array('lightgray','white');
+$i=0;
+echo "<table border=1 align=center-->";
+echo "<strong>Hotel TasteBuds</strong>"; $i=($i+1)%2;
+echo "Date".date('d-m-Y').""; $i=($i+1)%2;
+$total=0;
+$order_item=array();
+$order_item_price=array();
+if(isset($_POST['q_item1']))
+	{
+	$order_item['Paneer Butter Masala']=$_POST['q_item1'];
+	$order_item_price['Paneer Butter Masala']=$_POST['item1'];
+	}
+if(isset($_POST['q_item2']))
+	{
+	$order_item['Dal Makhani']=$_POST['q_item2'];
+	$order_item_price['Dal Makhani']=$_POST['item2'];
+	}
+if(isset($_POST['q_item3']))
+	{
+	$order_item['Butter Roti']=$_POST['q_item3'];
+	$order_item_price['Butter Roti']=$_POST['item3'];
+	}
+
+echo "DishQuantityAmount";$i=($i+1)%2;
+foreach($order_item as $a=&gt;$b)
+	{
+	echo "$a$bRs. ".((int)$b * (int)$order_item_price[$a])."";$i=($i+1)%2;
+	$total=$total+(int)$b * (int)$order_item_price[$a];
+	}
+echo "Total$total";$i=($i+1)%2;
+$discount=0;
+if($total&gt;=1000)
+$discount=10;
+$final_price=$total-$total*$discount/100;
+echo "<strong>Discount offered</strong>$discount%";
+$i=($i+1)%2;
+echo "<strong>Amount to be paid</strong>$final_price";
+$i=($i+1)%2;
+echo "";
+?&gt;
+<input type="button" onclick="abc()" value="CONFIRM">
+<!--?php
+}
+?-->
+</div>
+<br><br><br>
+<div style="float:right;width:29%; height:28%; text-align:center;">
+<img style="vertical-align:middle;margin:20px 10px" src="./Menu_files/Paneer-Butter-Masala.jpg">
+<img style="vertical-align:middle;margin:20px 10px" src="./Menu_files/Restaurant-Style-Dal-Makhani-500x500.jpg">
+<img src="./Menu_files/butter-roti-isolated-over-rustic-260nw-1880497348.jpg" style="vertical-align:middle;margin:20px 10px">
+</div>
+<div style="float:right;width:100%; height:8%; text-align:center;background-color:gray;color:yellow;">
+Contact Us<br>
+ABC Street, Mathura<br>
+Contact Number: +91-9123456789
+</div>
+
+
+</body></html>
