@@ -1,0 +1,62 @@
+
+<!-- saved from url=(0057)file:///C:/Users/ishav/OneDrive/Documents/calculator.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<style>
+textarea{
+text-align:right;
+background-color:lightblue;
+width:280px;
+}
+button{
+width:50px;
+border-radius:1000px;
+background-color:lightgreen;
+}
+</style>
+<title>Graphic Calculator</title>
+<script>
+function task(x){
+document.getElementById("result").innerHTML+=x;
+}
+function dark(){
+var h=document.getElementById("result").innerHTML;
+var i=eval(h);
+document.getElementById("result").innerHTML=i;
+}
+function disk(){
+document.getElementById("result").innerHTML="";
+}
+</script>
+<style type="text/css" id="operaUserStyle"></style></head>
+<body>
+<table border="20" align="center">
+<tbody><tr>
+<th colspan="3"><textarea id="result" disabled=""></textarea></th>
+<th><button type="button" onclick="disk()">C</button></th>
+</tr>
+<tr>
+<th><button type="button" onclick="task(&#39;7&#39;)">7</button></th>
+<th><button type="button" onclick="task(&#39;8&#39;)">8</button></th>
+<th><button type="button" onclick="task(&#39;9&#39;)">9</button></th>
+<th><button type="button" onclick="task(&#39;*&#39;)">*</button></th>
+</tr>
+<tr>
+<th><button type="button" onclick="task(&#39;4&#39;)">4</button></th>
+<th><button type="button" onclick="task(&#39;5&#39;)">5</button></th>
+<th><button type="button" onclick="task(&#39;6&#39;)">6</button></th>
+<th><button type="button" onclick="task(&#39;-&#39;)">-</button></th>
+</tr>
+<tr>
+<th><button type="button" onclick="task(&#39;1&#39;)">1</button></th>
+<th><button type="button" onclick="task(&#39;2&#39;)">2</button></th>
+<th><button type="button" onclick="task(&#39;3&#39;)">3</button></th>
+<th><button type="button" onclick="task(&#39;+&#39;)">+</button></th>
+</tr>
+<tr>
+<th><button type="button" onclick="task(&#39;.&#39;)">.</button></th>
+<th><button type="button" onclick="task(&#39;0&#39;)">0</button></th>
+<th><button type="button" onclick="dark()">=</button></th>
+<th><button type="button" onclick="task(&#39;/&#39;)">/</button></th>
+</tr>
+
+</tbody></table></body></html>
